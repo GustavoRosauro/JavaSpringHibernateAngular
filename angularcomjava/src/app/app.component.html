@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Contatos!
+  </h1>
+  <div class="col-md-6">
+    <label>Informe seu Nome</label>
+    <input class="form-control" [(ngModel)]="contato.nome">
+    <label>Informe seu Email</label>
+    <input class="form-control" type="email" [(ngModel)]="contato.email">
+    <label>Informe sua Idade</label>
+    <input class="form-control" [(ngModel)]="contato.idade">
+    <br>
+    <button class="btn btn-success" (click)="salvar()">Salvar</button>
+  </div>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Idade</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let contato of contatos">
+      <tr>
+          <td>{{contato.nome}}</td>
+          <td>{{contato.email}}</td>
+          <td>{{contato.idade}}</td>
+          <td><button class="btn btn-danger" (click)="deletar(contato.id)">Remover</button></td>
+          <td><button class="btn btn-warning"(click)="carregarColaborador(contato)">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+<router-outlet></router-outlet>
